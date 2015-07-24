@@ -1,21 +1,19 @@
 #include <Arduino.h>
 #include <Servo.h> 
+const int TUNING = 7;
 
-class MotionDriver {  
- const int TUNING = 7;
+class MotionDriver {   
 public:
-  void initialize(int leftServo, int rightServo){
+  MotionDriver(int leftServo, int rightServo){
     _leftServoPin = leftServo;
     _rightServoPin = rightServo; 
   }
 
   void forward(int duration, int spd){
-    Serial.println("Forward distance: " + String(duration) + " Speed: " + String(spd));
     doMove( "forward", duration, spd );
   }
 
   void backward(int duration, int spd){
-    Serial.println("Backward distance: " + String(duration) + " Speed: " + String(spd));
     doMove( "backward", duration, spd );
   }
 
@@ -64,8 +62,6 @@ private:
     int left = 90;
     int right = 90;
     
-    Serial.println( "Heading: " + heading + " Speed: " + String(spd) );
-    
     if (        heading == "forward"  ) {    
       left = 90 + spd;
       right = 90 - spd;
@@ -83,7 +79,6 @@ private:
     }
 
     int speeds [2] = { left, right };
-    Serial.println("after - " +String(speeds[0]) + " | " + String(speeds[1]));
     return speeds;
   }
 };

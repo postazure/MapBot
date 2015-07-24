@@ -1,14 +1,13 @@
 #include "motion_driver.cpp"
 #include <Servo.h> 
 
-MotionDriver driver;
 #define leftServoPin 2
 #define rightServoPin 3
+MotionDriver driver( leftServoPin, rightServoPin );
             
 void setup() 
 { 
   delay(2000);
-  driver.initialize( leftServoPin, rightServoPin );
 } 
  
 void loop() 

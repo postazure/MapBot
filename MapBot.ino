@@ -16,7 +16,14 @@ void loop()
   driver.forward( 300, 30 );
   delay(500);
   driver.backward( 300, 30 );
+  delay(500);
+  driver.turnRight( 90 );
+  delay(500);
+  driver.turnLeft( 180 );
+//  delay(500);
+//  driver.turnRight( 45 );
   delay(2000);
+  
 }
 
 
